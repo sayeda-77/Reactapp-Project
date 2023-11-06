@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Check the Git branch
+if [[ $GIT_BRANCH == "origin/dev" ]]; then
+    # Build your project
+    ./build.sh
+
+    # Log in to Docker Hub (replace with your actual Docker Hub credentials)
+    docker login -u sayeda77 -p Mushuadin@77
+
+    # Build the Docker image (replace "image" with the actual image name)
+    docker build -t react-appimg .
+
+    # Tag the image
+    docker tag react-appimg dev/dockerhub/repository:latest
+
+    # Push the image to the Dev Docker Hub repository
+    docker push dev/dockerhub/repository:latest
+
+elif [[ $GIT_BRANCH == "origin/main" ]]; then
+    # Build your project
+    ./build.sh
+
+    # Log in to Docker Hub (replace with your actual Docker Hub credentials)
+    docker login -u sayeda77 -p Mushuadin@77
+
+    # Build the Docker image (replace "image" with the actual image name)
+    docker build -t react-appimg .
+
+    # Tag the image
+    docker tag react-appimg prod/dockerhub/repository:latest
+
+    # Push the image to the Prod Docker Hub repository
+    docker push prod/dockerhub/repository:latest
+
+else
+    echo "Deployment error"
+fi
+
