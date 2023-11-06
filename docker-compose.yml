@@ -1,0 +1,7 @@
+version: '3'
+services:
+  reactapp:
+    image: react-appimg
+    ports:
+      - "80:80"
+
