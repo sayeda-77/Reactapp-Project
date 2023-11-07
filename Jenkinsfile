@@ -29,3 +29,5 @@ pipeline {
                 sh "docker push $DOCKERHUB_PRIVATE_REPO"
             }
         }
+  }
+}
