@@ -6,7 +6,7 @@ if [[ $GIT_BRANCH == "origin/dev" ]]; then
     ./build.sh
 
     # Log in to Docker Hub (replace with your actual Docker Hub credentials)
-    docker login -u sayeda77 -p Mushuadin@77
+    docker login -u sayeda77 -p dckr_pat_VPY-9NwBDEwI0PpfGcF3l8ujH28
 
     # Build the Docker image (replace "image" with the actual image name)
     docker build -t react-appimg .
@@ -22,7 +22,7 @@ elif [[ $GIT_BRANCH == "origin/main" ]]; then
     ./build.sh
 
     # Log in to Docker Hub (replace with your actual Docker Hub credentials)
-    docker login -u sayeda77 -p Mushuadin@77
+    docker login -u sayeda77 -p dckr_pat_VPY-9NwBDEwI0PpfGcF3l8ujH28
 
     # Build the Docker image (replace "image" with the actual image name)
     docker build -t react-appimg .
