@@ -12,22 +12,13 @@ pipeline {
         stage('Build and Push Docker Image') {
             steps {
                 // Grant executable permissions to the build script
-                sh 'chmod +x build.sh'
+                sh 'chmod +x deploy.sh'
 
                 // Build the Docker image using the build script
-                sh './build.sh'
+                sh './deploy.sh'
 
-                // Log in to Docker Hub (private repository) using your credentials
-                withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
-                    sh "docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD docker.io"
-                }
-
-                // Tag the Docker image with the customized tag
-                sh "docker tag react-appimg $DOCKERHUB_PRIVATE_REPO"
-
-                // Push the Docker image to the public Docker Hub repository with the customized tag
-                sh "docker push $DOCKERHUB_PRIVATE_REPO"
+              
             }
         }
-  }
+    }
 }
