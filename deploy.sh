@@ -15,7 +15,7 @@ if [[ $GIT_BRANCH == "origin/dev" ]]; then
     docker tag react-appimg dev/dockerhub/repository:latest
 
     # Push the image to the Dev Docker Hub repository
-    docker push dev/dockerhub/repository:latest
+    docker push sayeda77/dev
 
 elif [[ $GIT_BRANCH == "origin/main" ]]; then
     # Build your project
@@ -31,8 +31,7 @@ elif [[ $GIT_BRANCH == "origin/main" ]]; then
     docker tag react-appimg prod/dockerhub/repository:latest
 
     # Push the image to the Prod Docker Hub repository
-    docker push prod/dockerhub/repository:latest
-
+    docker push sayeda77/prod
 else
     echo "Deployment error"
 fi
